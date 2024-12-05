@@ -1,5 +1,7 @@
-local repo = "https://raw.githubusercontent.com/TestingAcount15/roblox-command-executor/refs/heads/main/command.txt"
-local cmd = game:HttpGet(repo)
+local repo = "https://raw.githubusercontent.com/TestingAcount15/roblox-command-executor/main/command.txt"
+local success, cmd = pcall(function()
+    return game:HttpGet(repo)
+end)
 
 local commands = {
     test = function()
@@ -7,8 +9,8 @@ local commands = {
     end,
 }
 
-if commands[cmd] then
+if success and commands[cmd] then
     commands[cmd]()
 else
-    print("Invalid or no command:", cmd)
+    print("Invalid or no command:", cmd or "Error fetching command")
 end
