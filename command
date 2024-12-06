@@ -1,1 +1,1 @@
-print("nige")
+print("test")
