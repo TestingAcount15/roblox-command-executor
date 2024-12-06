@@ -1,1 +1,1 @@
-print("hieruh")
+print("nige")
